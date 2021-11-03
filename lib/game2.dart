@@ -3,15 +3,14 @@ import 'package:kyl_shormuch/final_screen.dart';
 import 'main.dart';
 import 'new_game_screen.dart';
 
-class GameScreen extends StatefulWidget {
+class GameScreen2 extends StatefulWidget {
   int numOfRow = 4;
   List<int> numOfAllLevels = List.of([2, 0, 0, 0]);
   Level currentLevel;
   int currentGameLevel;
   int score = 0;
   int counterOfLevels;
-  GameScreen(List<Level> levels, Level this.currentLevel, Level,
-      int this.currentGameLevel, int this.score,
+  GameScreen2(List<Level> levels, Level this.currentLevel, int this.currentGameLevel, int this.score,
       {Key key})
       : super(key: key) {
     numOfRow += currentLevel.difficulty;
@@ -21,7 +20,7 @@ class GameScreen extends StatefulWidget {
   }
 
   @override
-  _GameScreenState createState() => _GameScreenState();
+  _GameScreen2State createState() => _GameScreen2State();
 
 
   List<List<List<List<Cell>>>> AllLevels = List.of([
@@ -89,7 +88,7 @@ class GameScreen extends StatefulWidget {
   ]);
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _GameScreen2State extends State<GameScreen2> {
   GlobalKey gridKey = new GlobalKey();
   List<Cell> selectedCells = List.empty(growable: true);
   Map<int, int> wordsLengths = Map();
@@ -126,7 +125,7 @@ class _GameScreenState extends State<GameScreen> {
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/background-gray.jpg"),
+                    image: AssetImage("assets/bg.jpeg"),
                     fit: BoxFit.cover,
                   )
               ),

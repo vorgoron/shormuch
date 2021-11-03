@@ -19,15 +19,15 @@ class Cell {
   }
 }
 
-class GameScreen extends StatefulWidget {
-  GameScreen(this.levelIndex, {Key key}) : super(key: key);
+class GameScreen1 extends StatefulWidget {
+  GameScreen1(this.levelIndex, {Key key}) : super(key: key);
   int levelIndex;
 
   @override
-  _GameScreenState createState() => _GameScreenState();
+  _GameScreen1State createState() => _GameScreen1State();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _GameScreen1State extends State<GameScreen1> {
   Map<int, List<Cell>> wordsMap = Map();
   GlobalKey gridKey = new GlobalKey();
   List<Cell> selectedCells = List.empty(growable: true);
@@ -166,57 +166,49 @@ class _GameScreenState extends State<GameScreen> {
                             cell.i = i;
                             cell.j = j;
                             maxColumnLength = max(maxColumnLength, matrix[i].length);
-
-                            if (cell == null)
-                              return SizedBox(
-                                width: 50,
-                                height: 50,
-                              );
-                            else {
-                              GlobalKey gridItemKey = new GlobalKey();
-                              return GestureDetector(
-                                onTapDown: (details) {
-                                  print("onTapDown ${details} ${cell.letter}");
-                                  selectItem(gridItemKey, details.globalPosition);
-                                },
-                                onTapUp: (details) {
-                                  print("onTapUp ${details} ${cell.letter}");
-                                  unselectItem(cell);
-                                },
-                                onPanUpdate: (details) {
-                                  print("onPanUpdate ${details} ${cell.letter}");
-                                  selectItem(gridItemKey, details.globalPosition);
-                                },
-                                onPanEnd: (details) {
-                                  print("onPanEnd ${details} ${cell.letter}");
-                                  unselectItem(cell);
-                                },
-                                child: Padding(
-                                  key: gridItemKey,
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: AnimatedPhysicalModel(
-                                    elevation: cell.selected? 8:0,
-                                    color: cell.selected
-                                        ? Colors.amber
-                                        : Colors.amberAccent,
-                                    shadowColor: Colors.black,
-                                    duration: Duration(milliseconds: 200),
-                                    shape: BoxShape.rectangle,
-                                    child: SizedBox(
-                                      width: 35,
-                                      height: 35,
-                                      child: Container(
-                                          decoration: BoxDecoration(
-                                              color: cell.selected
-                                                  ? Colors.amber
-                                                  : Colors.amberAccent,
-                                              borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                                          child: Center(child: Text(cell.letter.toLowerCase(), style: TextStyle(fontSize: 20),))),
-                                    ),
+                            GlobalKey gridItemKey = new GlobalKey();
+                            return GestureDetector(
+                              onTapDown: (details) {
+                                print("onTapDown ${details} ${cell.letter}");
+                                selectItem(gridItemKey, details.globalPosition);
+                              },
+                              onTapUp: (details) {
+                                print("onTapUp ${details} ${cell.letter}");
+                                unselectItem(cell);
+                              },
+                              onPanUpdate: (details) {
+                                print("onPanUpdate ${details} ${cell.letter}");
+                                selectItem(gridItemKey, details.globalPosition);
+                              },
+                              onPanEnd: (details) {
+                                print("onPanEnd ${details} ${cell.letter}");
+                                unselectItem(cell);
+                              },
+                              child: Padding(
+                                key: gridItemKey,
+                                padding: const EdgeInsets.all(1.0),
+                                child: AnimatedPhysicalModel(
+                                  elevation: cell.selected? 8:0,
+                                  color: cell.selected
+                                      ? Colors.amber
+                                      : Colors.amberAccent,
+                                  shadowColor: Colors.black,
+                                  duration: Duration(milliseconds: 200),
+                                  shape: BoxShape.rectangle,
+                                  child: SizedBox(
+                                    width: 35,
+                                    height: 35,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                            color: cell.selected
+                                                ? Colors.amber
+                                                : Colors.amberAccent,
+                                            borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                                        child: Center(child: Text(cell.letter.toLowerCase(), style: TextStyle(fontSize: 20),))),
                                   ),
                                 ),
-                              );
-                            }
+                              ),
+                            );
                           })),
                       ]),
                 ),

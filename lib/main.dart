@@ -7,10 +7,10 @@ void main() {
 }
 
 List<Level> levels = List.of([
-  Level("Нылпи", 4, 0, 70),
-  Level("Вожатой", 5, 1, 60),
-  Level("Ӧнерчи", 6, 2, 50),
-  Level("Тӧро", 7, 3, 40)
+  Level("Нылпи", 0, 0, 70),
+  Level("Вожатой", 1, 1, 60),
+  Level("Ӧнерчи", 2, 2, 50),
+  Level("Тӧро", 3, 3, 40)
 ]);
 
 class MyApp extends StatelessWidget {
@@ -31,7 +31,8 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
   Level currentLevel = levels.first;
-  int currentGameLevel = 0;
+  int currentGameLevel = -1;
+  int score = 0;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -89,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => GameScreen(widget.currentLevel.index),
+                            builder: (context) => GameScreen1(widget.currentLevel.index),
                           ));
                         },
                         style: ElevatedButton.styleFrom(
@@ -103,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => GameScreen2(levels, widget.currentLevel, widget.currentGameLevel),
+                            builder: (context) => GameScreen2(levels, widget.currentLevel, widget.currentGameLevel, widget.score),
                           ));
                         },
                         style: ElevatedButton.styleFrom(

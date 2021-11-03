@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kyl_shormuch/final_screen.dart';
-import 'package:kyl_shormuch/game_screen.dart';
+import 'game2.dart';
 import 'main.dart';
 class NewGame extends StatelessWidget {
   List<int> numOfAllLevels = List.of([2, 0, 0, 0]);
@@ -57,7 +57,7 @@ class NewGame extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) =>
-                                    GameScreen(levels, currentLevel, Level, currentGameLevel, score)),
+                                    GameScreen2(levels, currentLevel, currentGameLevel, score)),
                               );
                             }, child: Text("Азьлань")),
                           ),
