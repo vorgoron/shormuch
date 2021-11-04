@@ -14,7 +14,7 @@ class FinalScreen extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/background-gray.jpg"),
+                image: AssetImage("assets/Чорыгъёс.png"),
                 fit: BoxFit.cover,
               )
           ),
@@ -23,25 +23,29 @@ class FinalScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
 
-                    Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 30),),
+                    Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text("Ӟечок!", style: TextStyle(fontSize: 40),),
+                        Text("Ӟечок!", style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
                         if(currentLevel.difficulty == 3)
                           Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                             children: [
-                              Center(child: Text("${currentLevel.levelName} уровень ортчемын", style: TextStyle(fontSize: 25))),
-                              Center(child: Text("Шудон быриз", style: TextStyle(fontSize: 25),),),
+                              Center(child: Text("${currentLevel.levelName} уровень ортчемын",
+                                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
                               SizedBox(
-                                width: 200,
+                                width: 400,
                                 height: 50,
                                 child: ElevatedButton(onPressed: (){
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => MyApp()),
                                   );
-                                }, child: Text("Кутскыны выльысен")),
+                                }, child: Text("Быдэстыны шудонэз",
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 35),),
+                                  style: ElevatedButton.styleFrom(primary: Colors.white)),
                               )
                             ],
                           )

@@ -125,7 +125,7 @@ class _GameScreen2State extends State<GameScreen2> {
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/bg.jpeg"),
+                    image: AssetImage("assets/Android - 9.png"),
                     fit: BoxFit.cover,
                   )
               ),
@@ -134,8 +134,20 @@ class _GameScreen2State extends State<GameScreen2> {
 
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Text("Шедьтэм кылъёсыд: ${widget.score} ", style: TextStyle(fontSize: 30, color: Colors.pink),),
-                    IconButton(onPressed: onPressed, icon: Icon(Icons.pause_circle_outline, size: 50,color: Colors.pink,)),
+                    SizedBox(
+                      height: 40,
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+
+
+                            child: Text("Шедьтэм кылъёсыд: ${widget.score} ", style: TextStyle(fontSize: 30, color: Colors.white),),
+                      ),
+                    ),
+                    // IconButton(onPressed: onPressed, icon: Icon(Icons.pause_circle_outline, size: 50,color: Colors.pink,)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -184,7 +196,8 @@ class _GameScreen2State extends State<GameScreen2> {
                                                 key: gridItemKey,
                                                 width: widget.currentLevel.sizeOfCell,
                                                 height: widget.currentLevel.sizeOfCell,
-                                                child: Center(child: Text(cell.letter, style:  TextStyle(fontSize: 30),))),
+                                                child: Center(child: Text(cell.letter,
+                                                  style:  TextStyle(fontSize: 45, fontWeight: FontWeight.bold),))),
                                           ),
                                         )),
                                   );
@@ -284,15 +297,15 @@ class _GameScreen2State extends State<GameScreen2> {
   }
   Color getColor (Cell cell){
     switch(cell.wordId){
-      case 1 : return Colors.yellow; break;
-      case 2 : return Colors.blue; break;
+      case 1 : return Colors.purpleAccent; break;
+      case 2 : return Colors.lightBlue; break;
       case 3 : return Colors.deepOrange; break;
-      case 4 : return Colors.lightGreenAccent; break;
-      case 5 : return Colors.green; break;
-      case 6 : return Colors.pink; break;
-      case 7 : return Colors.teal; break;
-      case 8 : return Colors.tealAccent; break;
-      case 9 : return Colors.deepPurple; break;
+      case 4 : return Colors.green; break;
+      case 5 : return Colors.yellowAccent; break;
+      case 6 : return Colors.redAccent; break;
+      case 7 : return Colors.deepPurpleAccent; break;
+      case 8 : return Colors.lightGreenAccent; break;
+      case 9 : return Colors.amberAccent; break;
     }
 
   }

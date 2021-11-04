@@ -7,10 +7,10 @@ void main() {
 }
 
 List<Level> levels = List.of([
-  Level("Нылпи", 0, 0, 70),
-  Level("Вожатой", 1, 1, 60),
-  Level("Ӧнерчи", 2, 2, 50),
-  Level("Тӧро", 3, 3, 40)
+  Level("Нылпи", 0, 0, 75),
+  Level("Вожатой", 1, 1, 65),
+  Level("Ӧнерчи", 2, 2, 55),
+  Level("Тӧро", 3, 3, 45)
 ]);
 
 class MyApp extends StatelessWidget {
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/bg_2.jpeg"),
+                image: AssetImage("assets/Чорыгъёс.png"),
                 fit: BoxFit.cover
             )
         ),
@@ -69,24 +69,27 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                      icon: Icon(
-                    Icons.settings,
-                  )),
-                  TextButton(
-                      onPressed: onPressed,
-                      child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.amber),)),
-                  IconButton(
-                      icon: Icon(
-                    Icons.info_outline,
-                  )),
+                  SizedBox(),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: SizedBox(
+                      width: 100,
+                      height: 30,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                          onPressed: onPressed,
+                          child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
+                    ),
+                  ),
+                  SizedBox()
                 ],
               ),
               Image.asset("launcher.png", width: 150, height: 150),
               Column(
                 children: [
                   SizedBox(
-                    width: 200,
+                    height: 50,
+                    width: 270,
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -94,13 +97,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           ));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.amber
+                          primary: Colors.lightBlue,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                         ),
-                        child: Text("'Шормуӵ' шудон")),
+                        child: Text("'Шормуӵ' шудон",
+                          style: TextStyle(fontSize: 20, color: Colors.white),)),
                   ),
                   SizedBox(height: 20,),
                   SizedBox(
-                    width: 200,
+                    height: 50,
+                    width: 270,
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -108,9 +114,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           ));
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.amber
+                            primary: Colors.lightBlue,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                         ),
-                        child: Text("'Шедьты кылэз' шудон")),
+                        child: Text("'Шедьты кылэз' шудон",
+                          style: TextStyle(fontSize: 20, color: Colors.white))),
                   ),
                 ],
               ),
