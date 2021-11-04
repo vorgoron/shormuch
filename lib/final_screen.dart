@@ -28,19 +28,26 @@ class FinalScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Ӟечок!", style: TextStyle(fontSize: 40),),
-                        Center(child: Text("${currentLevel.levelName} уровень ортчемын", style: TextStyle(fontSize: 25)))
+                        if(currentLevel.difficulty == 3)
+                          Column(
+                            children: [
+                              Center(child: Text("${currentLevel.levelName} уровень ортчемын", style: TextStyle(fontSize: 25))),
+                              Center(child: Text("Шудон быриз", style: TextStyle(fontSize: 25),),),
+                              SizedBox(
+                                width: 200,
+                                height: 50,
+                                child: ElevatedButton(onPressed: (){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => MyApp()),
+                                  );
+                                }, child: Text("Кутскыны выльысен")),
+                              )
+                            ],
+                          )
                       ],
                     ),
-                    SizedBox(
-                      width: 200,
-                      height: 50,
-                      child: ElevatedButton(onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyApp()),
-                        );
-                      }, child: Text("Доре")),
-                    )
+
                   ]
               )
 

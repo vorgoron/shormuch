@@ -8,7 +8,8 @@ class NewGame extends StatelessWidget {
   int currentGameLevel;
   List<List<List<List<Cell>>>> AllLevels;
   int score;
-  NewGame(List<Level> levels,  Level this.currentLevel, Level, int this.currentGameLevel, List<List<List<List<Cell>>>> this.AllLevels, int this.score, {Key key}) : super(key: key){
+  NewGame(List<Level> levels,  Level this.currentLevel, Level,
+      int this.currentGameLevel, List<List<List<List<Cell>>>> this.AllLevels, int this.score, {Key key}) : super(key: key){
   }
   List<String> congrates = ([
     "Ӟеч уж", "Тон ӟечок", "ӟечкыласько", "Умой ужад"
@@ -41,7 +42,7 @@ class NewGame extends StatelessWidget {
                             child: Text("Доре")),
                         Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 30),),
                         Text("Ӟечок", style: TextStyle(fontSize: 50)),
-                        if(currentGameLevel == counterOfLevels)
+                        if(currentGameLevel == counterOfLevels && currentLevel.difficulty == 3)
                           ElevatedButton(onPressed: (){
                             Navigator.push(
                               context,
@@ -49,6 +50,24 @@ class NewGame extends StatelessWidget {
                                   FinalScreen(score, currentLevel)),
                             );
                           }, child: Text("Шудон быриз")),
+
+                        if(currentGameLevel == counterOfLevels && currentLevel.difficulty != 3)
+                          ElevatedButton(onPressed: (){
+                            switch(currentLevel.difficulty) {
+                              case 0: currentLevel = levels[1];
+                              break;
+                              case 1: currentLevel = levels[2];
+                              break;
+                              case 2: currentLevel = levels[3];
+                              break;
+                            }
+                            currentGameLevel = -1;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>
+                                  GameScreen2(levels, currentLevel, currentGameLevel, score)),
+                            );
+                          }, child: Text("Вуоно уровень")),
                         if(currentGameLevel < counterOfLevels)
                           SizedBox(
                             width: 200,
