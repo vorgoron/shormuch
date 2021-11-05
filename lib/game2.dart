@@ -125,7 +125,7 @@ class _GameScreen2State extends State<GameScreen2> {
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/Android - 9.png"),
+                    image: AssetImage(widget.currentLevel.fon),
                     fit: BoxFit.cover,
                   )
               ),

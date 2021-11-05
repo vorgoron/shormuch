@@ -14,7 +14,7 @@ class FinalScreen extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/Чорыгъёс.png"),
+                image: AssetImage("assets/главный экран.png"),
                 fit: BoxFit.cover,
               )
           ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kyl_shormuch/game1.dart';
 import 'package:kyl_shormuch/game2.dart';
@@ -7,10 +8,10 @@ void main() {
 }
 
 List<Level> levels = List.of([
-  Level("Нылпи", 0, 0, 75),
-  Level("Вожатой", 1, 1, 65),
-  Level("Ӧнерчи", 2, 2, 55),
-  Level("Тӧро", 3, 3, 45)
+  Level("fon1.png","Нылпи", 0, 0, 75),
+  Level("fon2.png","Вожатой", 1, 1, 65),
+  Level("fon3.png","Ӧнерчи", 2, 2, 55),
+  Level("fon4.png","Тӧро", 3, 3, 45)
 ]);
 
 class MyApp extends StatelessWidget {
@@ -39,8 +40,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class Level {
-  Level(this.levelName, this.difficulty, this.index, this.sizeOfCell);
-
+  Level(this.fon ,this.levelName, this.difficulty, this.index, this.sizeOfCell);
+  String fon;
   String levelName;
   int difficulty;
   int index;
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/Чорыгъёс.png"),
+                image: AssetImage("assets/главный экран.png"),
                 fit: BoxFit.cover
             )
         ),
@@ -69,21 +70,24 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+
                   SizedBox(),
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: SizedBox(
-                      width: 100,
-                      height: 30,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
-                          onPressed: onPressed,
-                          child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(15),
+                  //   child: SizedBox(
+                  //     width: 100,
+                  //     height: 30,
+                  //     child: ElevatedButton(
+                  //         style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                  //         onPressed: onPressed,
+                  //         child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
+                  //   ),
+                  // ), // лвлъёс милям по-порядку мыно соин не вижу смысла та кнопкаын кытын уровнез быгатиськом воштыны,
+                  // со мынам шудонын гинэ может быть тилед со кулэ луоз
                   SizedBox()
                 ],
               ),
+              SizedBox(),
               Image.asset("launcher.png", width: 150, height: 150),
               Column(
                 children: [
