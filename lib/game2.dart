@@ -24,35 +24,109 @@ class GameScreen2 extends StatefulWidget {
 
 
   List<List<List<List<Cell>>>> AllLevels = List.of([
-    List.of([
-      List.of([
+    List.of
+      ([List.of([
+        List.of([Cell(1, "к"), Cell(1, "ы"), Cell(1, "й"),Cell(6, "п"),]),
+        List.of([Cell(3, "д"), Cell(5, "у"), Cell(5, "ж"), Cell(6, "у"),]),
+        List.of([Cell(3, "у"), Cell(2, "ы"), Cell(2, "ж"), Cell(4, "ж")]),
+        List.of([Cell(3, "н"), Cell(2, "в"), Cell(4, "п"), Cell(4, "ы"),])
+      ]), List.of([
         List.of([Cell(1, "н"), Cell(1, "о"), Cell(2, "ӟ"),Cell(2, "ы"),]),
         List.of([Cell(1, "к"), Cell(1, "и"), Cell(2, "и"), Cell(2, "ч"),]),
         List.of([Cell(3, "о"), Cell(3, "ш"), Cell(4, "р"), Cell(4, "ы")]),
         List.of([Cell(4, "г"), Cell(4, "о"), Cell(4, "н"), Cell(4, "д"),])
       ]), List.of([
-        List.of([Cell(1, "к"), Cell(1, "о"), Cell(3, "л"), Cell(3, "о"),]),
-        List.of([Cell(1, "к"), Cell(1, "р"),Cell(3, "ы"), Cell(3, "т"),]),
+        List.of([Cell(1, "к"), Cell(1, "о"), Cell(3, "а"), Cell(3, "р"),]),
+        List.of([Cell(1, "к"), Cell(1, "р"),Cell(3, "у"), Cell(3, "к"),]),
         List.of([Cell(1, "а"), Cell(2, "н"),Cell(2, "о") ,Cell(4, "к") ]),
         List.of([Cell(2, "у"),Cell(2, "к") ,Cell(4, "ӝ") , Cell(4, "ӧ"),])
       ]), List.of([
-        List.of([Cell(1, "к"), Cell(3, "б"), Cell(3, "е"), Cell(3, "р"),]),
-        List.of([Cell(1, "у"), Cell(2, "у"), Cell(2, "н"), Cell(3, "и"),]),
-        List.of([Cell(1, "а"), Cell(2, "ш") , Cell(2, "д"), Cell(3, "з")]),
-        List.of([Cell(1, "к"), Cell(1, "а"), Cell(2, "ы"), Cell(3, "ь"),])
+        List.of([Cell(7, "к"), Cell(3, "б"), Cell(3, "е"), Cell(3, "р"),]),
+        List.of([Cell(7, "у"), Cell(2, "у"), Cell(2, "н"), Cell(3, "и"),]),
+        List.of([Cell(7, "а"), Cell(2, "ш") , Cell(2, "д"), Cell(3, "з")]),
+        List.of([Cell(7, "к"), Cell(7, "а"), Cell(2, "ы"), Cell(3, "ь"),])
+      ]), List.of([
+        List.of([Cell(4, "ч"), Cell(4, "о"), Cell(4, "р"), Cell(4, "ы"),]),
+        List.of([Cell(9, "с"), Cell(9, "ь"), Cell(3, "к"), Cell(4, "г"),]),
+        List.of([Cell(9, "ю"), Cell(9, "с") , Cell(3, "е"), Cell(3, "ш")]),
+        List.of([Cell(9, "к"), Cell(9, "а"), Cell(3, "р"), Cell(3, "ы"),])
+      ]),List.of([
+        List.of([Cell(1, "с"), Cell(1, "у"), Cell(1, "г"), Cell(6, "н"),]),
+        List.of([Cell(8, "к"), Cell(8, "е"), Cell(1, "о"), Cell(6, "ё"),]),
+        List.of([Cell(8, "а"), Cell(8, "с") , Cell(1, "н"), Cell(6, "с")]),
+        List.of([Cell(8, "м"), Cell(6, "п"), Cell(6, "у"), Cell(6, "к"),])
+      ]),List.of([
+        List.of([Cell(9, "р"), Cell(9, "ы"), Cell(9, "н"), Cell(7, "п"),]),
+        List.of([Cell(1, "а"), Cell(1, "р"), Cell(1, "ъ"), Cell(7, "ы"),]),
+        List.of([Cell(7, "н"), Cell(1, "н") , Cell(1, "я"), Cell(7, "ш")]),
+        List.of([Cell(7, "ы"), Cell(7, "р"), Cell(7, "у"), Cell(7, "т"),])
+      ]),List.of([
+        List.of([Cell(3, "й"), Cell(4, "к"), Cell(4, "ы"), Cell(7, "б"),]),
+        List.of([Cell(3, "ы"), Cell(4, "а"), Cell(7, "м"), Cell(7, "а"),]),
+        List.of([Cell(3, "р"), Cell(4, "р") , Cell(4, "а"), Cell(6, "ь")]),
+        List.of([Cell(6, "э"), Cell(6, "м"), Cell(6, "е"), Cell(6, "з"),])
+      ]),List.of([
+        List.of([Cell(6, "к"), Cell(6, "ы"), Cell(6, "л"), Cell(6, "р"),]),
+        List.of([Cell(9, "м"), Cell(3, "л"), Cell(6, "б"), Cell(6, "у"),]),
+        List.of([Cell(9, "а"), Cell(3, "а") , Cell(3, "к"), Cell(3, "с")]),
+        List.of([Cell(9, "й"), Cell(9, "т"), Cell(9, "а"), Cell(9, "л"),])
+      ]),List.of([
+        List.of([Cell(4, "л"), Cell(4, "ь"), Cell(4, "ӧ"), Cell(4, "м"),]),
+        List.of([Cell(3, "к"), Cell(3, "е"), Cell(3, "т"), Cell(1, "к"),]),
+        List.of([Cell(3, "ы"), Cell(3, "ш") , Cell(1, "т"), Cell(1, "у")]),
+        List.of([Cell(2, "ы"), Cell(2, "ь"), Cell(2, "з"), Cell(2, "и"),])
+      ]),List.of([
+        List.of([Cell(4, "н"), Cell(4, "ю"), Cell(4, "л"), Cell(1, "к"),]),
+        List.of([Cell(3, "ӵ"), Cell(3, "ӧ"), Cell(4, "э"), Cell(1, "ы"),]),
+        List.of([Cell(2, "м"), Cell(3, "ж") , Cell(4, "с"), Cell(1, "з")]),
+        List.of([Cell(2, "е"), Cell(2, "ж"), Cell(2, "у"), Cell(2, "г"),])
+      ]),List.of([
+        List.of([Cell(1, "ч"), Cell(1, "и"), Cell(1, "б"), Cell(3, "ы"),]),
+        List.of([Cell(1, "ь"), Cell(1, "н"), Cell(1,"и"), Cell(3, "т"),]),
+        List.of([Cell(3, "т"), Cell(3, "у") , Cell(3, "с"), Cell(3, "ь")]),
+        List.of([Cell(2, "ь"), Cell(2, "л"), Cell(2, "ӥ"), Cell(2, "с"),])
       ]),
-      //add new words in first level
     ]),
 
     List.of([
       List.of([
+        List.of([Cell(9, "б"), Cell(8, "т"), Cell(8, "ы"),Cell(8, "м"),Cell(8, "е")]),
+        List.of([Cell(9, "у"), Cell(1, "ы"), Cell(1, "з"), Cell(1, "у"),Cell(8, "т")]),
+        List.of([Cell(9, "б"), Cell(9, "ы"), Cell(9, "л"), Cell(9, "и"),Cell(7, "л")]),
+        List.of([Cell(7, "й"), Cell(7, "э"), Cell(7, "т"), Cell(7, "м"),Cell(7, "е")]),
+        List.of([Cell(3, "а"), Cell(3, "й"), Cell(3, "ш"), Cell(3, "е"),Cell(3, "т")]),
+      ]),List.of([
+        List.of([Cell(1, "ӟ"), Cell(1, "о"), Cell(1, "л"),Cell(1, "ь"),Cell(7, "н")]),
+        List.of([Cell(5, "л"), Cell(1, "р"), Cell(1, "ы"), Cell(1, "г"),Cell(7, "у")]),
+        List.of([Cell(5, "ы"), Cell(1, "и"), Cell(7, "р"), Cell(7, "ы"),Cell(7, "м")]),
+        List.of([Cell(5, "ь"), Cell(8, "ю"), Cell(8, "с"), Cell(8, "ь"),Cell(4, "ӵ")]),
+        List.of([Cell(5, "з"), Cell(5, "ӥ"), Cell(5, "с"), Cell(4, "н"),Cell(4, "ы")]),
+      ]),List.of([
         List.of([Cell(1, "к"), Cell(1, "у"), Cell(1, "ж"),Cell(4, "к"),Cell(4, "у")]),
         List.of([Cell(2, "н"), Cell(2, "я"), Cell(1, "ы"), Cell(4, "з"),Cell(4, "а")]),
         List.of([Cell(2, "ь"), Cell(2, "н"), Cell(1, "м"), Cell(4, "ь"),Cell(5, "р")]),
         List.of([Cell(3, "т"), Cell(3, "ы"), Cell(3, "р"), Cell(5, "г"),Cell(5, "у")]),
         List.of([Cell(3, "ы"), Cell(3, "п"), Cell(3, "т"), Cell(3, "о"),Cell(3, "н")]),
-      ])
-      //add new words in second level
+      ]),List.of([
+        List.of([Cell(1, "э"), Cell(1, "б"), Cell(4, "п"),Cell(4, "ӧ"),Cell(4, "с")]),
+        List.of([Cell(3, "ы"), Cell(1, "е"), Cell(4, "э"), Cell(4, "т"),Cell(4, "я")]),
+        List.of([Cell(3, "ч"), Cell(1, "к"), Cell(4, "м"), Cell(2, "т"),Cell(2, "ы")]),
+        List.of([Cell(3, "т"), Cell(2, "к"), Cell(2, "ы"), Cell(2, "с"),Cell(2, "б")]),
+        List.of([Cell(3, "р"), Cell(3, "я"), Cell(3, "с"), Cell(2, "й"),Cell(2, "е")]),
+      ]),List.of([
+        List.of([Cell(1, "ш"), Cell(1, "ы"), Cell(1, "д"),Cell(6, "в"),Cell(6, "у")]),
+        List.of([Cell(3, "п"), Cell(2, "ы"), Cell(2, "м"), Cell(2, "ы"),Cell(2, "с")]),
+        List.of([Cell(3, "е"), Cell(2, "к"), Cell(3, "я"), Cell(3, "н"),Cell(4, "в")]),
+        List.of([Cell(3, "л"), Cell(3, "ь"), Cell(3, "н"), Cell(3, "ь"),Cell(4, "а")]),
+        List.of([Cell(5, "и"), Cell(5, "б"), Cell(5, "у"), Cell(5, "г"),Cell(4, "л")]),
+      ]),List.of([
+        List.of([Cell(1, "ч"), Cell(1, "и"), Cell(1, "н"),Cell(3, "б"),Cell(3, "ы")]),
+        List.of([Cell(2, "п"), Cell(1, "ы"), Cell(1, "ь"), Cell(3, "о"),Cell(3, "р")]),
+        List.of([Cell(2, "а"), Cell(2, "л"), Cell(2, "э"), Cell(2, "з"),Cell(2, "ь")]),
+        List.of([Cell(5, "б"), Cell(5, "я"), Cell(5, "р"), Cell(4, "л"),Cell(4, "ы")]),
+        List.of([Cell(5, "а"), Cell(5, "д"), Cell(4, "т"), Cell(4, "у"),Cell(4, "с")]),
+      ]),
+
     ]),
 
     List.of([
@@ -81,8 +155,24 @@ class GameScreen2 extends StatefulWidget {
     ]),
   ]);
   List<List<String>> AllLevelwords = List.of([
-    (["кион", "ӟичы", "ош", "гондыр", "корка", "укно", "ӝӧк", "тыло", "куака", "шунды","беризь"]),
-    (["кужым", "гур", "куазь", "тыпыртон", "нянь", ]),
+    (["дун","пыж","уж","кый","пу","выж",
+      "кион", "ӟичы", "ош", "гондыр",
+      "корка", "укно", "ӝӧк", "куар",
+      "куака", "шунды","беризь",
+      "чорыг","сюкась","кешыр",
+      "сугон","пуксён","макес",
+      "йыр","бам","эмезь","аракы",
+      "аръян","пыштурын","ныр",
+      "кылбур","майтал","скал",
+      "льӧм","изьы","кут","кышет",
+      "нюлэс","ӵӧж","гужем","кыз",
+      "чибинь","сӥль","тусьты"]),
+    (["кужым", "гур", "куазь", "тыпыртон", "нянь",
+      "эбек","пӧсятэм","кыстыбей","сяртчы",
+      "шыд","ву","пельнянь","вал","губи","кымыс",
+      "чиньы","боры","бадяр","тулыс","палэзь",
+      "ӟольгыри","юсь","нумыр","ӵын","сӥзьыл",
+      "бубыли","тымет","лемтэй","айшет","узы"]),
     (["сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",]),
     (["яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы" ])
   ]);

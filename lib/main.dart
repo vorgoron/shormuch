@@ -72,18 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
 
                   SizedBox(),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(15),
-                  //   child: SizedBox(
-                  //     width: 100,
-                  //     height: 30,
-                  //     child: ElevatedButton(
-                  //         style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
-                  //         onPressed: onPressed,
-                  //         child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
-                  //   ),
-                  // ), // лвлъёс милям по-порядку мыно соин не вижу смысла та кнопкаын кытын уровнез быгатиськом воштыны,
-                  // со мынам шудонын гинэ может быть тилед со кулэ луоз
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: SizedBox(
+                      width: 100,
+                      height: 30,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                          onPressed: onPressed,
+                          child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
+                    ),
+                  ), // лвлъёс милям по-порядку мыно соин не вижу смысла та кнопкаын кытын уровнез быгатиськом воштыны,
+
                   SizedBox()
                 ],
               ),

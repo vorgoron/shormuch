@@ -3,7 +3,7 @@ import 'package:kyl_shormuch/final_screen.dart';
 import 'game2.dart';
 import 'main.dart';
 class NewGame extends StatelessWidget {
-  List<int> numOfAllLevels = List.of([2, 0, 0, 0]);
+
   Level currentLevel;
   int currentGameLevel;
   List<List<List<List<Cell>>>> AllLevels;
@@ -11,12 +11,13 @@ class NewGame extends StatelessWidget {
   NewGame(List<Level> levels,  Level this.currentLevel, Level,
       int this.currentGameLevel, List<List<List<List<Cell>>>> this.AllLevels, int this.score, {Key key}) : super(key: key){
   }
-  List<String> congrates = ([
-    "Ӟеч уж", "Тон ӟечок", "ӟечкыласько", "Умой ужад"
-  ]);
 
   @override
   Widget build(BuildContext context) {
+    List<int> numOfAllLevels = List.of([AllLevels[0].length-1,
+      AllLevels[1].length-1,
+      AllLevels[2].length-1,
+      AllLevels[3].length-1]);
     int counterOfLevels = numOfAllLevels[currentLevel.difficulty];
     print(currentGameLevel);
     return Container(
