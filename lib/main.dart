@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/главный экран.png"),
+                image: AssetImage("assets/главный экран (1).png"),
                 fit: BoxFit.cover
             )
         ),
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(),
-              Image.asset("launcher.png", width: 150, height: 150),
+              SizedBox(),SizedBox(),
               Column(
                 children: [
                   SizedBox(

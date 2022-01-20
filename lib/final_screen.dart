@@ -22,19 +22,18 @@ class FinalScreen extends StatelessWidget {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-
-                    Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                    Text("Шедьтэм кылъёсыд:${score}", style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Ӟечок!", style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
+                        Text("Ӟечок!", style: TextStyle(fontSize: 70,fontWeight: FontWeight.bold),),
                         if(currentLevel.difficulty == 3)
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                             children: [
                               Center(child: Text("${currentLevel.levelName} уровень ортчемын",
                                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
+                              SizedBox(),
                               SizedBox(
                                 width: 400,
                                 height: 50,
@@ -44,7 +43,7 @@ class FinalScreen extends StatelessWidget {
                                     MaterialPageRoute(builder: (context) => MyApp()),
                                   );
                                 }, child: Text("Быдэстыны шудонэз",
-                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 35),),
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25),),
                                   style: ElevatedButton.styleFrom(primary: Colors.white)),
                               )
                             ],

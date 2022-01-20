@@ -26,8 +26,8 @@ class GameScreen2 extends StatefulWidget {
   List<List<List<List<Cell>>>> AllLevels = List.of([
     List.of
       ([List.of([
-        List.of([Cell(1, "к"), Cell(1, "ы"), Cell(1, "й"),Cell(6, "п"),]),
-        List.of([Cell(3, "д"), Cell(5, "у"), Cell(5, "ж"), Cell(6, "у"),]),
+        List.of([Cell(5, "у"), Cell(5, "ж"), Cell(1, "й"),Cell(6, "п"),]),
+        List.of([Cell(3, "д"), Cell(1, "к"), Cell(1, "ы"), Cell(6, "у"),]),
         List.of([Cell(3, "у"), Cell(2, "ы"), Cell(2, "ж"), Cell(4, "ж")]),
         List.of([Cell(3, "н"), Cell(2, "в"), Cell(4, "п"), Cell(4, "ы"),])
       ]), List.of([
@@ -90,17 +90,65 @@ class GameScreen2 extends StatefulWidget {
 
     List.of([
       List.of([
+        List.of([Cell(8, "ӝ"), Cell(9, "с"), Cell(9, "о"),Cell(9, "р"),Cell(2, "б")]),
+        List.of([Cell(8, "у"), Cell(8, "й"), Cell(8, "ы"), Cell(9, "ё"),Cell(2, "а")]),
+        List.of([Cell(3, "ӥ"), Cell(3, "н"), Cell(2, "р"), Cell(2, "ы"),Cell(2, "т")]),
+        List.of([Cell(3, "д"), Cell(4, "и"), Cell(4, "б"), Cell(4, "ё"),Cell(4, "ӧ")]),
+        List.of([Cell(3, "е"), Cell(3, "в"), Cell(4, "у"), Cell(4, "г"),Cell(4, "в")]),
+      ]),List.of([
+        List.of([Cell(7, "б"), Cell(7, "ч"), Cell(7, "а"),Cell(4, "г"),Cell(4, "у")]),
+        List.of([Cell(7, "а"), Cell(7, "к"), Cell(6, "в"), Cell(5, "о"),Cell(4, "д")]),
+        List.of([Cell(6, "э"), Cell(6, "т"), Cell(6, "о"), Cell(5, "б"),Cell(4, "ы")]),
+        List.of([Cell(6, "с"), Cell(5, "у"), Cell(5, "р"), Cell(5, "о"),Cell(4, "р")]),
+        List.of([Cell(1, "ш"), Cell(1, "ы"), Cell(1, "м"), Cell(1, "е"),Cell(4, "и")]),
+      ]),List.of([
+        List.of([Cell(9, "д"), Cell(9, "ы"), Cell(9, "ш"),Cell(9, "е"),Cell(9, "т")]),
+        List.of([Cell(7, "д"), Cell(7, "л"), Cell(7, "ӧ"), Cell(9, "к"),Cell(9, "с")]),
+        List.of([Cell(7, "э"), Cell(2, "ь"), Cell(7, "в"), Cell(9, "о"),Cell(4, "а")]),
+        List.of([Cell(7, "т"), Cell(2, "н"), Cell(4, "и"), Cell(9, "н"),Cell(4, "р")]),
+        List.of([Cell(2, "в"), Cell(2, "е"), Cell(4, "р"), Cell(4, "е"),Cell(4, "б")]),
+      ]),List.of([
+        List.of([Cell(2, "ч"), Cell(2, "у"), Cell(7, "у"),Cell(7, "й"),Cell(7, "в")]),
+        List.of([Cell(2, "и"), Cell(2, "к"), Cell(5, "л"), Cell(9, "к"),Cell(7, "ӧ")]),
+        List.of([Cell(2, "н"), Cell(5, "п"), Cell(5, "а"), Cell(9, "о"),Cell(7, "т")]),
+        List.of([Cell(2, "д"), Cell(5, "а"), Cell(5, "с"), Cell(9, "ӵ"),Cell(9, "ы")]),
+        List.of([Cell(2, "э"), Cell(2, "р"), Cell(3, "с"), Cell(3, "ӧ"),Cell(9, "ш")]),
+      ]),List.of([
+        List.of([Cell(1, "а"), Cell(1, "д"), Cell(1, "я"),Cell(6, "в"),Cell(6, "а")]),
+        List.of([Cell(8, "у"), Cell(8, "д"), Cell(1, "м"), Cell(1, "и"),Cell(6, "м")]),
+        List.of([Cell(8, "ш"), Cell(8, "е"), Cell(8, "с"), Cell(5, "с"),Cell(6, "ы")]),
+        List.of([Cell(5, "г"), Cell(5, "е"), Cell(5, "р"), Cell(5, "э"),Cell(6, "ш")]),
+        List.of([Cell(2, "э"), Cell(2, "к"), Cell(2, "с"), Cell(2, "э"),Cell(2, "й")]),
+      ]),List.of([
+        List.of([Cell(9, "в"), Cell(9, "и"), Cell(9, "р"),Cell(9, "н"),Cell(6, "т")]),
+        List.of([Cell(2, "г"), Cell(9, "а"), Cell(9, "н"), Cell(9, "у"),Cell(6, "а")]),
+        List.of([Cell(2, "о"), Cell(9, "л"), Cell(2, "м"), Cell(2, "а"),Cell(6, "ш")]),
+        List.of([Cell(2, "р"), Cell(2, "у"), Cell(2, "ш"), Cell(2, "н"),Cell(6, "б")]),
+        List.of([Cell(2, "д"), Cell(2, "к"), Cell(6, "а"), Cell(6, "к"),Cell(6, "а")]),
+      ]),List.of([
+        List.of([Cell(9, "л"), Cell(9, "ы"), Cell(9, "м"),Cell(3, "ю"),Cell(3, "с")]),
+        List.of([Cell(2, "к"), Cell(3, "л"), Cell(9, "ы"), Cell(3, "с"),Cell(1, "й")]),
+        List.of([Cell(2, "у"), Cell(3, "ы"), Cell(3, "т"), Cell(3, "ь"),Cell(1, "ӧ")]),
+        List.of([Cell(2, "р"), Cell(2, "е"), Cell(2, "г"), Cell(7, "к"),Cell(7, "ы")]),
+        List.of([Cell(7, "в"), Cell(7, "ы"), Cell(7, "ж"), Cell(7, "ы"),Cell(7, "л")]),
+      ]),List.of([
+        List.of([Cell(9, "т"), Cell(1, "а"), Cell(1, "т"),Cell(1, "а"),Cell(6, "ы")]),
+        List.of([Cell(9, "э"), Cell(4, "б"), Cell(4, "ӧ"), Cell(1, "с"),Cell(6, "р")]),
+        List.of([Cell(9, "л"), Cell(9, "ь"), Cell(4, "д"), Cell(6, "д"),Cell(6, "у")]),
+        List.of([Cell(7, "о"), Cell(7, "р"), Cell(4, "ё"), Cell(4, "н"),Cell(4, "о")]),
+        List.of([Cell(7, "з"), Cell(7, "к"), Cell(7, "и"), Cell(7, "б"),Cell(7, "ы")]),
+      ]),List.of([
         List.of([Cell(9, "б"), Cell(8, "т"), Cell(8, "ы"),Cell(8, "м"),Cell(8, "е")]),
         List.of([Cell(9, "у"), Cell(1, "ы"), Cell(1, "з"), Cell(1, "у"),Cell(8, "т")]),
         List.of([Cell(9, "б"), Cell(9, "ы"), Cell(9, "л"), Cell(9, "и"),Cell(7, "л")]),
         List.of([Cell(7, "й"), Cell(7, "э"), Cell(7, "т"), Cell(7, "м"),Cell(7, "е")]),
-        List.of([Cell(3, "а"), Cell(3, "й"), Cell(3, "ш"), Cell(3, "е"),Cell(3, "т")]),
+        List.of([Cell(6, "а"), Cell(6, "й"), Cell(6, "ш"), Cell(6, "е"),Cell(6, "т")]),
       ]),List.of([
         List.of([Cell(1, "ӟ"), Cell(1, "о"), Cell(1, "л"),Cell(1, "ь"),Cell(7, "н")]),
         List.of([Cell(5, "л"), Cell(1, "р"), Cell(1, "ы"), Cell(1, "г"),Cell(7, "у")]),
-        List.of([Cell(5, "ы"), Cell(1, "и"), Cell(7, "р"), Cell(7, "ы"),Cell(7, "м")]),
-        List.of([Cell(5, "ь"), Cell(8, "ю"), Cell(8, "с"), Cell(8, "ь"),Cell(4, "ӵ")]),
-        List.of([Cell(5, "з"), Cell(5, "ӥ"), Cell(5, "с"), Cell(4, "н"),Cell(4, "ы")]),
+        List.of([Cell(5, "ы"), Cell(1, "и"), Cell(8, "ь"), Cell(4, "ӵ"),Cell(7, "м")]),
+        List.of([Cell(5, "ь"), Cell(8, "ю"), Cell(8, "с"), Cell(4, "ы"),Cell(7, "ы")]),
+        List.of([Cell(5, "з"), Cell(5, "ӥ"), Cell(5, "с"), Cell(4, "н"),Cell(7, "р")]),
       ]),List.of([
         List.of([Cell(1, "к"), Cell(1, "у"), Cell(1, "ж"),Cell(4, "к"),Cell(4, "у")]),
         List.of([Cell(2, "н"), Cell(2, "я"), Cell(1, "ы"), Cell(4, "з"),Cell(4, "а")]),
@@ -108,9 +156,9 @@ class GameScreen2 extends StatefulWidget {
         List.of([Cell(3, "т"), Cell(3, "ы"), Cell(3, "р"), Cell(5, "г"),Cell(5, "у")]),
         List.of([Cell(3, "ы"), Cell(3, "п"), Cell(3, "т"), Cell(3, "о"),Cell(3, "н")]),
       ]),List.of([
-        List.of([Cell(1, "э"), Cell(1, "б"), Cell(4, "п"),Cell(4, "ӧ"),Cell(4, "с")]),
-        List.of([Cell(3, "ы"), Cell(1, "е"), Cell(4, "э"), Cell(4, "т"),Cell(4, "я")]),
-        List.of([Cell(3, "ч"), Cell(1, "к"), Cell(4, "м"), Cell(2, "т"),Cell(2, "ы")]),
+        List.of([Cell(6, "э"), Cell(6, "б"), Cell(4, "п"),Cell(4, "ӧ"),Cell(4, "с")]),
+        List.of([Cell(3, "ы"), Cell(6, "е"), Cell(4, "э"), Cell(4, "т"),Cell(4, "я")]),
+        List.of([Cell(3, "ч"), Cell(6, "к"), Cell(4, "м"), Cell(2, "т"),Cell(2, "ы")]),
         List.of([Cell(3, "т"), Cell(2, "к"), Cell(2, "ы"), Cell(2, "с"),Cell(2, "б")]),
         List.of([Cell(3, "р"), Cell(3, "я"), Cell(3, "с"), Cell(2, "й"),Cell(2, "е")]),
       ]),List.of([
@@ -172,7 +220,15 @@ class GameScreen2 extends StatefulWidget {
       "шыд","ву","пельнянь","вал","губи","кымыс",
       "чиньы","боры","бадяр","тулыс","палэзь",
       "ӟольгыри","юсь","нумыр","ӵын","сӥзьыл",
-      "бубыли","тымет","лемтэй","айшет","узы"]),
+      "бубыли","тымет","лемтэй","айшет","узы",
+      "тэль","зоркибы","дуры","атас","бӧдёно",
+      "сюсьтыл","выжыкыл","лымы","йӧ","курег",
+      "вирнунал","ташбака","гордкушман",
+      "адями","эксэй","сэрег","душес","вамыш",
+      "чукиндэр","уйвӧт","коӵыш","ӧс","лапас",
+      "дышетскон","арбери","вӧлдэт","вень",
+      "бакча","гудыри","емыш","вотэс","уробо",
+      "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн"]),
     (["сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",]),
     (["яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы" ])
   ]);
@@ -367,7 +423,8 @@ class _GameScreen2State extends State<GameScreen2> {
         element.selected = false;
       });
     }
-    if(widget.AllLevelwords[widget.currentLevel.difficulty].contains(word))
+    if(wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
+        && widget.AllLevelwords[widget.currentLevel.difficulty].contains(word))
       widget.score++;
     print(selectedCells);
 

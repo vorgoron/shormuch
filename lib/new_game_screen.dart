@@ -41,7 +41,7 @@ class NewGame extends StatelessWidget {
                         //   );
                         // },
                         //     child: Text("Доре")),
-                        Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                        Text("Шедьтэм кылъёсыд: ${score}", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),),
                         Text("Ӟечок", style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold)),
 
                         if(currentGameLevel == counterOfLevels && currentLevel.difficulty == 3)
@@ -79,7 +79,7 @@ class NewGame extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) =>
                                     GameScreen2(levels, currentLevel, currentGameLevel, score)),
                               );
-                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
+                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
 
                           ),

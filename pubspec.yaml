@@ -56,14 +56,14 @@ flutter:
     - Android - 10.png
     - Android - 11.png
     - Android - 12.png
-    - главный экран.png
     - fon1.png
     - fon2.png
     - fon3.png
     - fon4.png
     - launcher.png
     - blackfon.png
-    -
+    - главный экран (1).png
+    - главный экран.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
