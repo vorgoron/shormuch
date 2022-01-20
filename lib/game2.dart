@@ -202,8 +202,8 @@ class GameScreen2 extends StatefulWidget {
       //add new words in fourth levels
     ]),
   ]);
-  List<List<String>> AllLevelwords = List.of([
-    (["дун","пыж","уж","кый","пу","выж",
+  List<String> AllLevelwords = List.of([
+    "дун","пыж","уж","кый","пу","выж",
       "кион", "ӟичы", "ош", "гондыр",
       "корка", "укно", "ӝӧк", "куар",
       "куака", "шунды","беризь",
@@ -214,8 +214,8 @@ class GameScreen2 extends StatefulWidget {
       "кылбур","майтал","скал",
       "льӧм","изьы","кут","кышет",
       "нюлэс","ӵӧж","гужем","кыз",
-      "чибинь","сӥль","тусьты"]),
-    (["кужым", "гур", "куазь", "тыпыртон", "нянь",
+      "чибинь","сӥль","тусьты",
+      "кужым", "гур", "куазь", "тыпыртон", "нянь",
       "эбек","пӧсятэм","кыстыбей","сяртчы",
       "шыд","ву","пельнянь","вал","губи","кымыс",
       "чиньы","боры","бадяр","тулыс","палэзь",
@@ -228,9 +228,9 @@ class GameScreen2 extends StatefulWidget {
       "чукиндэр","уйвӧт","коӵыш","ӧс","лапас",
       "дышетскон","арбери","вӧлдэт","вень",
       "бакча","гудыри","емыш","вотэс","уробо",
-      "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн"]),
-    (["сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",]),
-    (["яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы" ])
+      "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн",
+      "сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",
+      "яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы"
   ]);
 }
 
@@ -238,6 +238,7 @@ class _GameScreen2State extends State<GameScreen2> {
   GlobalKey gridKey = new GlobalKey();
   List<Cell> selectedCells = List.empty(growable: true);
   Map<int, int> wordsLengths = Map();
+  String word = "";
 
   void selectItem(GlobalKey<State<StatefulWidget>> gridItemKey, var details) {
     RenderBox _boxItem = gridItemKey.currentContext.findRenderObject();
@@ -353,6 +354,7 @@ class _GameScreen2State extends State<GameScreen2> {
                           ],
 
                         ),
+
                       ),
                     ),
                     Text("", style: TextStyle(fontSize: 40, color: Colors.pink),),
@@ -399,17 +401,35 @@ class _GameScreen2State extends State<GameScreen2> {
     for (var cell in selectedCells) {
       wordIds.add(cell.wordId);
     }
-    String word = "";
+    String lastWord = word;
+    word = "";
     selectedCells.forEach((element) {
       word = word + element.letter;
-    });
-    print("word${word}");
-    print("wordIds: $wordIds");
-    print("wordsLengths = ${wordsLengths[cell.wordId]}");
-    print("selectedCells.length = ${selectedCells.length}");
 
+
+    });
+    print("last $lastWord");
+    print(word);
+    if(lastWord == word){
+      showDialog(
+          context: context,
+          builder: (context) {
+            return StatefulBuilder(builder: (context, setState) {
+              return AlertDialog(
+                content: Text("Мон та кылэз уг тодӥськы"),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("ОК"))
+                ],
+              );
+            });
+          });
+    }
     if (wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
-        && widget.AllLevelwords[widget.currentLevel.difficulty].contains(word)) {
+        && widget.AllLevelwords.contains(word)) {
       // win
       selectedCells.forEach((element) {
         element.isKnown = true;
@@ -424,9 +444,10 @@ class _GameScreen2State extends State<GameScreen2> {
       });
     }
     if(wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
-        && widget.AllLevelwords[widget.currentLevel.difficulty].contains(word))
+        && widget.AllLevelwords.contains(word))
       widget.score++;
     print(selectedCells);
+
 
     if(widget.AllLevels[widget.currentLevel.difficulty][widget.currentGameLevel]
         .every((element) => element.every((c) => c.isKnown))){
