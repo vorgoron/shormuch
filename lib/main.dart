@@ -8,10 +8,10 @@ void main() {
 }
 
 List<Level> levels = List.of([
-  Level("fon1.png","Нылпи", 0, 0, 75),
-  Level("fon2.png","Вожатой", 1, 1, 65),
-  Level("fon3.png","Ӧнерчи", 2, 2, 55),
-  Level("fon4.png","Тӧро", 3, 3, 45)
+  Level("fon1.png","Нылпи", 0, 0, 85),
+  Level("fon2.png","Вожатой", 1, 1, 75),
+  Level("fon3.png","Ӧнерчи", 2, 2, 65),
+  Level("fon4.png","Тӧро", 3, 3, 55)
 ]);
 
 class MyApp extends StatelessWidget {

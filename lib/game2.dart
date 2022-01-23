@@ -4,11 +4,11 @@ import 'main.dart';
 import 'new_game_screen.dart';
 
 class GameScreen2 extends StatefulWidget {
-  int numOfRow = 4;
-  List<int> numOfAllLevels = List.of([2, 0, 0, 0]);
+  int numOfRow = 3;
   Level currentLevel;
   int currentGameLevel;
   int score = 0;
+
   int counterOfLevels;
   GameScreen2(List<Level> levels, Level this.currentLevel, int this.currentGameLevel, int this.score,
       {Key key})
@@ -22,15 +22,31 @@ class GameScreen2 extends StatefulWidget {
   @override
   _GameScreen2State createState() => _GameScreen2State();
 
+  List<String> addWords = List.of([]);
 
   List<List<List<List<Cell>>>> AllLevels = List.of([
-    List.of
-      ([List.of([
-        List.of([Cell(5, "у"), Cell(5, "ж"), Cell(1, "й"),Cell(6, "п"),]),
-        List.of([Cell(3, "д"), Cell(1, "к"), Cell(1, "ы"), Cell(6, "у"),]),
-        List.of([Cell(3, "у"), Cell(2, "ы"), Cell(2, "ж"), Cell(4, "ж")]),
-        List.of([Cell(3, "н"), Cell(2, "в"), Cell(4, "п"), Cell(4, "ы"),])
-      ]), List.of([
+    List.of([
+      List.of([
+        List.of([Cell(5, "у"), Cell(5, "ж"), Cell(1, "п"),]),
+        List.of([Cell(8, "у"), Cell(8, "н"), Cell(1, "у"), ]),
+        List.of([Cell(8, "д"), Cell(2, "ы"), Cell(2, "ж"), ]),
+      ]),List.of([
+        List.of([Cell(8, "ж"), Cell(4, "р"), Cell(2, "ы"),]),
+        List.of([Cell(8, "ы"), Cell(4, "а"), Cell(2, "п"), ]),
+        List.of([Cell(8, "п"), Cell(2, "т"), Cell(2, "ы"), ]),
+      ]),List.of([
+        List.of([Cell(6, "д"), Cell(1, "ы"), Cell(1, "ж"),]),
+        List.of([Cell(6, "у"), Cell(1, "в"), Cell(9, "к"), ]),
+        List.of([Cell(6, "р"), Cell(9, "й"), Cell(9, "ы"), ]),
+      ]),List.of([
+        List.of([Cell(1, "б"), Cell(3, "ы"), Cell(3, "р"),]),
+        List.of([Cell(1, "а"), Cell(3, "н"), Cell(3, "у"), ]),
+        List.of([Cell(1, "к"), Cell(1, "а"), Cell(3, "т"), ]),
+      ]),
+      //add new words in first levels
+    ]),
+    List.of([
+      List.of([
         List.of([Cell(1, "н"), Cell(1, "о"), Cell(2, "ӟ"),Cell(2, "ы"),]),
         List.of([Cell(1, "к"), Cell(1, "и"), Cell(2, "и"), Cell(2, "ч"),]),
         List.of([Cell(3, "о"), Cell(3, "ш"), Cell(4, "р"), Cell(4, "ы")]),
@@ -163,7 +179,7 @@ class GameScreen2 extends StatefulWidget {
         List.of([Cell(3, "р"), Cell(3, "я"), Cell(3, "с"), Cell(2, "й"),Cell(2, "е")]),
       ]),List.of([
         List.of([Cell(1, "ш"), Cell(1, "ы"), Cell(1, "д"),Cell(6, "в"),Cell(6, "у")]),
-        List.of([Cell(3, "п"), Cell(2, "ы"), Cell(2, "м"), Cell(2, "ы"),Cell(2, "с")]),
+        List.of([Cell(3, "п"), Cell(2, "ы"), Cell(2, "м"), Cell(2, "е"),Cell(2, "с")]),
         List.of([Cell(3, "е"), Cell(2, "к"), Cell(3, "я"), Cell(3, "н"),Cell(4, "в")]),
         List.of([Cell(3, "л"), Cell(3, "ь"), Cell(3, "н"), Cell(3, "ь"),Cell(4, "а")]),
         List.of([Cell(5, "и"), Cell(5, "б"), Cell(5, "у"), Cell(5, "г"),Cell(4, "л")]),
@@ -189,21 +205,13 @@ class GameScreen2 extends StatefulWidget {
       //add new words in third level
     ]),
 
-    List.of([
-      List.of([
-        List.of([Cell(1, "в"), Cell(2, "я"), Cell(2, "р"),Cell(2, "а"),Cell(2, "т"),Cell(7, "т"),Cell(5, "в"),]),
-        List.of([Cell(1, "е"), Cell(3, "м"), Cell(3, "и"), Cell(2, "н"),Cell(2, "о"),Cell(7, "р"),Cell(5, "ы"),]),
-        List.of([Cell(1, "р"), Cell(1, "а"), Cell(3, "н"), Cell(8, "в"),Cell(7, "г"),Cell(7, "у"),Cell(5, "ж"),]),
-        List.of([Cell(1, "ь"), Cell(1, "с"), Cell(3, "д"), Cell(8, "а"),Cell(8, "л"),Cell(6, "к"),Cell(5, "ы"),]),
-        List.of([Cell(1, "к"), Cell(4, "л"), Cell(3, "э"), Cell(3, "р"),Cell(8, "е" ),Cell(6, "а"),Cell(6, "п"),]),
-        List.of([Cell(1, "о"), Cell(4, "у"), Cell(4, "е"), Cell(4, "б"),Cell(8, "с"),Cell(6, "а"),Cell(6, "к"),]),
-        List.of([Cell(1, "н"), Cell(4, "л"), Cell(4, "ч"), Cell(4, "е"),Cell(4, "р"),Cell(4, "е"),Cell(4, "т"),]),
-      ]),
-      //add new words in fourth levels
-    ]),
+
   ]);
   List<String> AllLevelwords = List.of([
-    "дун","пыж","уж","кый","пу","выж",
+      "ыж","уж","дун","пу",
+      "пыж","ар","тыпы",
+      "выж","кый","дур",
+      "турын","бака",
       "кион", "ӟичы", "ош", "гондыр",
       "корка", "укно", "ӝӧк", "куар",
       "куака", "шунды","беризь",
@@ -217,7 +225,7 @@ class GameScreen2 extends StatefulWidget {
       "чибинь","сӥль","тусьты",
       "кужым", "гур", "куазь", "тыпыртон", "нянь",
       "эбек","пӧсятэм","кыстыбей","сяртчы",
-      "шыд","ву","пельнянь","вал","губи","кымыс",
+      "шыд","ву","пельнянь","вал","губи","кымес",
       "чиньы","боры","бадяр","тулыс","палэзь",
       "ӟольгыри","юсь","нумыр","ӵын","сӥзьыл",
       "бубыли","тымет","лемтэй","айшет","узы",
@@ -230,7 +238,13 @@ class GameScreen2 extends StatefulWidget {
       "бакча","гудыри","емыш","вотэс","уробо",
       "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн",
       "сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",
-      "яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы"
+
+      "яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы",
+      "арама","кыл","тусь","дыр","уй","вӧт","уд","вир","нунал",
+      "кушман","шур","лым","ым","ты","лы","лыс","тыл","ур",
+      "сюсь","зор","кибы","тэй","гу","гумы","гырлы","муг",
+      "ку","куа","куак","гон","ыргон","пель","бун",
+      "пал","ин","тус","сюл","пуж","пужы","пум","куды",
   ]);
 }
 
@@ -265,7 +279,7 @@ class _GameScreen2State extends State<GameScreen2> {
   }
   @override
   Widget build(BuildContext context) {
-    int counterOfLevels = widget.numOfAllLevels[widget.currentLevel.difficulty];
+    int counterOfLevels = widget.AllLevels[widget.currentLevel.difficulty].length;
     wordsLengths.clear();
     return Container(
         child: Scaffold(
@@ -291,7 +305,8 @@ class _GameScreen2State extends State<GameScreen2> {
                         ),
 
 
-                            child: Text("Шедьтэм кылъёсыд: ${widget.score} ", style: TextStyle(fontSize: 30, color: Colors.white),),
+                            child: Text("Шедьтэм кылъёсыд: ${widget.score} ",
+                              style: TextStyle(fontSize: 30, color: Colors.white),),
                       ),
                     ),
                     // IconButton(onPressed: onPressed, icon: Icon(Icons.pause_circle_outline, size: 50,color: Colors.pink,)),
@@ -405,12 +420,47 @@ class _GameScreen2State extends State<GameScreen2> {
     word = "";
     selectedCells.forEach((element) {
       word = word + element.letter;
-
-
     });
     print("last $lastWord");
     print(word);
-    if(lastWord == word){
+
+    if (wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
+        && widget.AllLevelwords.contains(word)) {
+      // win
+      selectedCells.forEach((element) {
+        element.isKnown = true;
+        element.selected = false;
+      });
+    }
+    else {
+      selectedCells.forEach((element) {
+        element.isKnown = false;
+        element.selected = false;
+      });
+    }
+
+    if (widget.addWords.contains(word) && cell.isKnown == false ) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return StatefulBuilder(builder: (context, setState) {
+              return AlertDialog(
+
+                content: Text("Тон та кылэз шедьтӥд ни ук)"),
+                actions: [
+
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("ОК"))
+                ],
+              );
+            });
+          });
+    }
+
+    else if(lastWord == word && wordIds.length != 1){
       showDialog(
           context: context,
           builder: (context) {
@@ -428,27 +478,16 @@ class _GameScreen2State extends State<GameScreen2> {
             });
           });
     }
-    if (wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
-        && widget.AllLevelwords.contains(word)) {
-      // win
-      selectedCells.forEach((element) {
-        element.isKnown = true;
-        element.selected = false;
+    if(widget.addWords.contains(word)) {
 
-      });
     }
-    else{
-      selectedCells.forEach((element) {
-        element.isKnown = false;
-        element.selected = false;
-      });
-    }
-    if(wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
-        && widget.AllLevelwords.contains(word))
+    else if (widget.AllLevelwords.contains(word) ){
       widget.score++;
-    print(selectedCells);
-
-
+      print(selectedCells);
+    }
+    if(widget.AllLevelwords.contains(word) ){
+          widget.addWords.add(word);
+    }
     if(widget.AllLevels[widget.currentLevel.difficulty][widget.currentGameLevel]
         .every((element) => element.every((c) => c.isKnown))){
       Navigator.push(
@@ -467,13 +506,13 @@ class _GameScreen2State extends State<GameScreen2> {
     switch(cell.wordId){
       case 1 : return Colors.purpleAccent; break;
       case 2 : return Colors.lightBlue; break;
-      case 3 : return Colors.deepOrange; break;
+      case 3 : return Colors.orange; break;
       case 4 : return Colors.green; break;
       case 5 : return Colors.yellowAccent; break;
       case 6 : return Colors.redAccent; break;
       case 7 : return Colors.deepPurpleAccent; break;
       case 8 : return Colors.lightGreenAccent; break;
-      case 9 : return Colors.amberAccent; break;
+      case 9 : return Colors.brown; break;
     }
 
   }
