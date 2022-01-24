@@ -47,14 +47,14 @@ class NewGame extends StatelessWidget {
                         if(currentGameLevel == counterOfLevels && currentLevel.difficulty == 3)
                           SizedBox(
                             width: 300,
-                            height: 50,
+                            height: 70,
                             child: ElevatedButton(onPressed: (){
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) =>
                                     FinalScreen(score, currentLevel)),
                               );
-                            }, child: Text("Шудон быриз", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
+                            }, child: Text("Азьлань", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
                           ),
                         if(currentGameLevel == counterOfLevels && currentLevel.difficulty != 3)
@@ -79,13 +79,13 @@ class NewGame extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) =>
                                     GameScreen2(levels, currentLevel, currentGameLevel, score)),
                               );
-                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
+                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
 
                           ),
                         if(currentGameLevel < counterOfLevels)
                           SizedBox(
-                            width: 200,
+                            width: 300,
                             height: 70,
                             child: ElevatedButton(onPressed: (){
                               Navigator.push(

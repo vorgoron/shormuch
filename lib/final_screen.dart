@@ -36,14 +36,14 @@ class FinalScreen extends StatelessWidget {
                               SizedBox(),
                               SizedBox(
                                 width: 400,
-                                height: 50,
+                                height: 70,
                                 child: ElevatedButton(onPressed: (){
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => MyApp()),
                                   );
                                 }, child: Text("Быдэстыны шудонэз",
-                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25),),
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 35),),
                                   style: ElevatedButton.styleFrom(primary: Colors.white)),
                               )
                             ],
