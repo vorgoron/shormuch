@@ -8,7 +8,7 @@ class GameScreen2 extends StatefulWidget {
   Level currentLevel;
   int currentGameLevel;
   int score = 0;
-
+  Color colorForLetter = Colors.black;
   int counterOfLevels;
   GameScreen2(List<Level> levels, Level this.currentLevel, int this.currentGameLevel, int this.score,
       {Key key})
@@ -23,7 +23,7 @@ class GameScreen2 extends StatefulWidget {
   _GameScreen2State createState() => _GameScreen2State();
 
   List<String> addWords = List.of([]);
-
+  bool isAdded = false;
   List<List<List<List<Cell>>>> AllLevels = List.of([
     List.of([
       List.of([
@@ -302,6 +302,7 @@ class _GameScreen2State extends State<GameScreen2> {
   }
   @override
   Widget build(BuildContext context) {
+
     int counterOfLevels = widget.AllLevels[widget.currentLevel.difficulty].length;
     wordsLengths.clear();
     return Container(
@@ -381,11 +382,15 @@ class _GameScreen2State extends State<GameScreen2> {
                                                 key: gridItemKey,
                                                 width: widget.currentLevel.sizeOfCell,
                                                 height: widget.currentLevel.sizeOfCell,
-                                                child: Center(child: Text(cell.letter,
-                                                  style:  TextStyle(fontSize: 45, fontWeight: FontWeight.bold),))),
+                                                child: Center(child: AnimatedDefaultTextStyle(child: Text(cell.letter),
+                                                    style: TextStyle(color: widget.colorForLetter,fontSize: 45, fontWeight: FontWeight.bold),
+                                                    duration: Duration(seconds: 1),
+
+                                                    ),
+                                                ))),
                                           ),
-                                        )),
-                                  );
+                                        ));
+
                                 }),
                               ),
 
@@ -403,36 +408,36 @@ class _GameScreen2State extends State<GameScreen2> {
             )));
 
   }
-  void onPressed(){
-    showDialog(
-        context: context,
-        builder: (context) {
-          return StatefulBuilder(
-            builder: (context, setState) => AlertDialog(
-              title: Text("Пауза"),
-              content: Column(
-                children: <Widget>[
-                  ElevatedButton(onPressed:(){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
-                    );
-                  },
-                      child: Text("Доре"))
-                ],
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: Text('Потыны'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            ),
-          );
-        });
-  }
+  // void onPressed(){
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return StatefulBuilder(
+  //           builder: (context, setState) => AlertDialog(
+  //             title: Text("Пауза"),
+  //             content: Column(
+  //               children: <Widget>[
+  //                 ElevatedButton(onPressed:(){
+  //                   Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(builder: (context) => MyApp()),
+  //                   );
+  //                 },
+  //                     child: Text("Доре"))
+  //               ],
+  //             ),
+  //             actions: <Widget>[
+  //               TextButton(
+  //                 child: Text('Потыны'),
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop();
+  //                 },
+  //               )
+  //             ],
+  //           ),
+  //         );
+  //       });
+  // }
 
   void unselectCell(Cell cell) {
     Set<int> wordIds = Set();
@@ -440,6 +445,7 @@ class _GameScreen2State extends State<GameScreen2> {
       wordIds.add(cell.wordId);
     }
     String lastWord = word;
+
     word = "";
     selectedCells.forEach((element) {
       word = word + element.letter;
@@ -461,7 +467,6 @@ class _GameScreen2State extends State<GameScreen2> {
         element.selected = false;
       });
     }
-
     if (widget.addWords.contains(word) && cell.isKnown == false ) {
       showDialog(
           context: context,
@@ -482,8 +487,8 @@ class _GameScreen2State extends State<GameScreen2> {
             });
           });
     }
-
-    else if(lastWord == word && wordIds.length != 1){
+    else if(lastWord == word && cell.isKnown == false
+        && widget.AllLevelwords.contains(word) == false){
       showDialog(
           context: context,
           builder: (context) {
@@ -502,10 +507,10 @@ class _GameScreen2State extends State<GameScreen2> {
           });
     }
     if (widget.AllLevelwords.contains(word)
-        && widget.addWords.contains(word) == false){
+        && widget.addWords.contains(word) == false ){
       widget.score++;
     }
-    if(widget.AllLevelwords.contains(word) ){
+    if(widget.AllLevelwords.contains(word) && cell.isKnown == false){
           widget.addWords.add(word);
     }
     if(widget.AllLevels[widget.currentLevel.difficulty][widget.currentGameLevel]
@@ -521,6 +526,7 @@ class _GameScreen2State extends State<GameScreen2> {
     }
     selectedCells.clear();
     setState(() {});
+    widget.colorForLetter = Colors.black;
   }
   Color getColor (Cell cell){
     switch(cell.wordId){
@@ -534,7 +540,6 @@ class _GameScreen2State extends State<GameScreen2> {
       case 8 : return Colors.lightGreenAccent; break;
       case 9 : return Colors.brown; break;
     }
-
   }
 }
 class Cell {
