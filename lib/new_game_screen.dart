@@ -54,7 +54,7 @@ class NewGame extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) =>
                                     FinalScreen(score, currentLevel)),
                               );
-                            }, child: Text("Азьлань", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
+                            }, child: Text("Азьлань", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
                           ),
                         if(currentGameLevel == counterOfLevels && currentLevel.difficulty != 3)
@@ -79,7 +79,7 @@ class NewGame extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) =>
                                     GameScreen2(levels, currentLevel, currentGameLevel = -1, score)),
                               );
-                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
+                            }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
 
                           ),
@@ -93,7 +93,7 @@ class NewGame extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) =>
                                     GameScreen2(levels, currentLevel, currentGameLevel, score)),
                               );
-                            }, child: Text("Азьлань", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
+                            }, child: Text("Азьлань", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),
                           ),
                         SizedBox()
