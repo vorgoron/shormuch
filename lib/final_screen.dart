@@ -42,7 +42,7 @@ class FinalScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(builder: (context) => MyApp()),
                                   );
-                                }, child: Text("Быдэстыны шудонэз",
+                                }, child: Text("Выльысен ортчыны",
                                   style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 35),),
                                   style: ElevatedButton.styleFrom(primary: Colors.white)),
                               )

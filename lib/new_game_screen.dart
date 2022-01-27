@@ -73,11 +73,11 @@ class NewGame extends StatelessWidget {
                                 case 2: currentLevel = levels[3];
                                 break;
                               }
-                              currentGameLevel = -1;
+
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) =>
-                                    GameScreen2(levels, currentLevel, currentGameLevel, score)),
+                                    GameScreen2(levels, currentLevel, currentGameLevel = -1, score)),
                               );
                             }, child: Text("Вуоно уровень", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),)
                               ,style: ElevatedButton.styleFrom(primary: Colors.white),),

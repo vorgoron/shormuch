@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kyl_shormuch/game1.dart';
 import 'package:kyl_shormuch/game2.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
+
 }
 
 List<Level> levels = List.of([
@@ -15,9 +17,11 @@ List<Level> levels = List.of([
 ]);
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Кыл Шормуӵ',
       theme: ThemeData(
@@ -29,6 +33,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
   Level currentLevel = levels.first;
@@ -36,7 +41,9 @@ class MyHomePage extends StatefulWidget {
   int score = 0;
 
   @override
+
   _MyHomePageState createState() => _MyHomePageState();
+
 }
 
 class Level {
@@ -52,6 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -80,7 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
                           onPressed: onPressed,
-                          child: Text(widget.currentLevel.levelName, style: TextStyle(color: Colors.white),)),
+                          child: AnimatedDefaultTextStyle(duration: Duration(microseconds: 1),
+                          style: TextStyle(color: Colors.white),
+                          child: Text("Уровень",
+                            style: TextStyle(color: Colors.white),))),
                     ),
                   ), // лвлъёс милям по-порядку мыно соин не вижу смысла та кнопкаын кытын уровнез быгатиськом воштыны,
 
@@ -97,11 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => GameScreen1(widget.currentLevel.index),
+                            builder: (context) =>
+                                GameScreen1(widget.currentLevel.index),
                           ));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue,
+                            primary: Colors.lightBlue,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                         ),
                         child: Text("'Шормуӵ' шудон",
@@ -112,17 +125,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 50,
                     width: 270,
                     child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => GameScreen2(levels, widget.currentLevel, widget.currentGameLevel, widget.score),
-                          ));
-                        },
+                        onPressed: getVariables,
                         style: ElevatedButton.styleFrom(
                             primary: Colors.lightBlue,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                         ),
                         child: Text("'Шедьты кылэз' шудон",
-                          style: TextStyle(fontSize: 20, color: Colors.white))),
+                            style: TextStyle(fontSize: 20, color: Colors.white))),
                   ),
                 ],
               ),
@@ -133,36 +142,70 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+  void getVariables() async {
 
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      widget.score = prefs.getInt("score");
+      if(widget.score == null){
+        widget.currentLevel.difficulty = 0;
+        widget.currentLevel.levelName = "Нылпи";
+        widget.currentLevel.sizeOfCell = 85;
+        widget.currentGameLevel = -1;
+        widget.score = 0;
+        widget.currentLevel.fon = "fon1.png";
+      }
+      else{
+        widget.currentLevel.fon = prefs.getString("fonOfLevel");
+        widget.currentGameLevel = prefs.getInt("currentGameLevel");
+        widget.score = prefs.getInt("score");
+        widget.currentLevel.difficulty = prefs.getInt("currentDifficult");
+        widget.currentLevel.levelName = prefs.getString("levelName");
+        widget.currentLevel.sizeOfCell = prefs.getDouble("currentSizeOfCell");
+      }
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => GameScreen2(levels, widget.currentLevel,
+            widget.currentGameLevel, widget.score),
+      ));
+  }
+  void changeScreen(){
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => GameScreen2(levels, widget.currentLevel,
+          widget.currentGameLevel, widget.score),
+    ));
+
+  }
   void onPressed() {
     showDialog(
         context: context,
         builder: (context) {
           return StatefulBuilder(builder: (context, setState) {
-            return AlertDialog(
-              title: Text('Быръелэ уровеньдэс'),
-              content: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  for (var level in levels)
-                    RadioListTile<Level>(
-                        title: Text(level.levelName),
-                        value: level,
-                        groupValue: widget.currentLevel,
-                        onChanged: (value) {
-                          setState(() {
-                            widget.currentLevel = value;
-                          });
-                        })
+            return FittedBox(
+              child: AlertDialog(
+                title: Text('Быръелэ уровеньдэс'),
+                content: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    for (var level in levels)
+                      RadioListTile<Level>(
+                          title: Text(level.levelName),
+                          value: level,
+                          groupValue: widget.currentLevel,
+                          onChanged: (value) {
+                            setState(() {
+                              widget.currentLevel = value;
+                            });
+                          })
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("ОК"))
                 ],
               ),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text("ОК"))
-              ],
             );
           });
         });

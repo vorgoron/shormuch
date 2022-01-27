@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kyl_shormuch/final_screen.dart';
 import 'main.dart';
 import 'new_game_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GameScreen2 extends StatefulWidget {
   int numOfRow = 3;
   Level currentLevel;
   int currentGameLevel;
   int score = 0;
-  Color colorForLetter = Colors.black;
   int counterOfLevels;
   GameScreen2(List<Level> levels, Level this.currentLevel, int this.currentGameLevel, int this.score,
       {Key key})
@@ -23,7 +23,6 @@ class GameScreen2 extends StatefulWidget {
   _GameScreen2State createState() => _GameScreen2State();
 
   List<String> addWords = List.of([]);
-  bool isAdded = false;
   List<List<List<List<Cell>>>> AllLevels = List.of([
     List.of([
       List.of([
@@ -229,45 +228,45 @@ class GameScreen2 extends StatefulWidget {
 
   ]);
   List<String> AllLevelwords = List.of([
-      "ыж","уж","дун","пу",
-      "пыж","ар","тыпы",
-      "выж","кый","дур",
-      "турын","бака",
-      "кион", "ӟичы", "ош", "гондыр",
-      "корка", "укно", "ӝӧк", "куар",
-      "куака", "шунды","беризь",
-      "чорыг","сюкась","кешыр",
-      "сугон","пуксён","макес",
-      "йыр","бам","эмезь","аракы",
-      "аръян","пыштурын","ныр",
-      "кылбур","майтал","скал",
-      "льӧм","изьы","кут","кышет",
-      "нюлэс","ӵӧж","гужем","кыз",
-      "чибинь","сӥль","тусьты",
-      "кужым", "гур", "куазь", "тыпыртон", "нянь",
-      "эбек","пӧсятэм","кыстыбей","сяртчы",
-      "шыд","ву","пельнянь","вал","губи","кымес",
-      "чиньы","боры","бадяр","тулыс","палэзь",
-      "ӟольгыри","юсь","нумыр","ӵын","сӥзьыл",
-      "бубыли","тымет","лемтэй","айшет","узы",
-      "тэль","зоркибы","дуры","атас","бӧдёно",
-      "сюсьтыл","выжыкыл","лымы","йӧ","курег",
-      "вирнунал","ташбака","гордкушман",
-      "адями","эксэй","сэрег","душес","вамыш",
-      "чукиндэр","уйвӧт","коӵыш","ӧс","лапас",
-      "дышетскон","арбери","вӧлдэт","вень",
-      "бакча","гудыри","емыш","вотэс","уробо",
-      "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн",
-      "сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",
-      "геры","вукарнан","гажан","гуждор","ӵушъял","гордсюй","гуждор",
-      "гырлы","инсьӧр",
+    "ыж","уж","дун","пу",
+    "пыж","ар","тыпы",
+    "выж","кый","дур",
+    "турын","бака",
+    "кион", "ӟичы", "ош", "гондыр",
+    "корка", "укно", "ӝӧк", "куар",
+    "куака", "шунды","беризь",
+    "чорыг","сюкась","кешыр",
+    "сугон","пуксён","макес",
+    "йыр","бам","эмезь","аракы",
+    "аръян","пыштурын","ныр",
+    "кылбур","майтал","скал",
+    "льӧм","изьы","кут","кышет",
+    "нюлэс","ӵӧж","гужем","кыз",
+    "чибинь","сӥль","тусьты",
+    "кужым", "гур", "куазь", "тыпыртон", "нянь",
+    "эбек","пӧсятэм","кыстыбей","сяртчы",
+    "шыд","ву","пельнянь","вал","губи","кымес",
+    "чиньы","боры","бадяр","тулыс","палэзь",
+    "ӟольгыри","юсь","нумыр","ӵын","сӥзьыл",
+    "бубыли","тымет","лемтэй","айшет","узы",
+    "тэль","зоркибы","дуры","атас","бӧдёно",
+    "сюсьтыл","выжыкыл","лымы","йӧ","курег",
+    "вирнунал","ташбака","гордкушман",
+    "адями","эксэй","сэрег","душес","вамыш",
+    "чукиндэр","уйвӧт","коӵыш","ӧс","лапас",
+    "дышетскон","арбери","вӧлдэт","вень",
+    "бакча","гудыри","емыш","вотэс","уробо",
+    "ӝуйы","ёрос","батыр","вӧёгуби","ведӥн",
+    "сюлэм", "койык", "пужым", "дуринчи", "дэрем", "улмо", "пукон",
+    "геры","вукарнан","гажан","гуждор","ӵушъял","гордсюй","гуждор",
+    "гырлы","инсьӧр",
 
-      "яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы",
-      "арама","кыл","тусь","дыр","уй","вӧт","уд","вир","нунал",
-      "кушман","шур","лым","ым","ты","лы","лыс","тыл","ур",
-      "сюсь","зор","кибы","тэй","гу","гумы","гырлы","муг",
-      "ку","куа","куак","гон","ыргон","пель","бун",
-      "пал","ин","тус","сюл","пуж","пужы","пум","куды","кар","ки","сюй","дор",
+    "яратон", "вераськон", "миндэр", "лулчеберет", "валес", "гурт", "капка", "выжы",
+    "арама","кыл","тусь","дыр","уй","вӧт","уд","вир","нунал",
+    "кушман","шур","лым","ым","ты","лы","лыс","тыл","ур",
+    "сюсь","зор","кибы","тэй","гу","гумы","гырлы","муг",
+    "ку","куа","куак","гон","ыргон","пель","бун",
+    "пал","ин","тус","сюл","пуж","пужы","пум","куды","кар","ки","сюй","дор",
   ]);
 }
 
@@ -302,8 +301,12 @@ class _GameScreen2State extends State<GameScreen2> {
   }
   @override
   Widget build(BuildContext context) {
+    List<int> numOfAllLevels = List.of([widget.AllLevels[0].length-1,
+      widget.AllLevels[1].length-1,
+      widget.AllLevels[2].length-1,
+      widget.AllLevels[3].length-1]);
+      widget.counterOfLevels = numOfAllLevels[widget.currentLevel.difficulty];
 
-    int counterOfLevels = widget.AllLevels[widget.currentLevel.difficulty].length;
     wordsLengths.clear();
     return Container(
         child: Scaffold(
@@ -324,13 +327,13 @@ class _GameScreen2State extends State<GameScreen2> {
                       child: Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(10)
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10)
                         ),
 
 
-                            child: Text("Шедьтэм кылъёсыд: ${widget.score} ",
-                              style: TextStyle(fontSize: 30, color: Colors.white),),
+                        child: Text("Шедьтэм кылъёсыд: ${widget.score} ",
+                          style: TextStyle(fontSize: 30, color: Colors.white),),
                       ),
                     ),
                     // IconButton(onPressed: onPressed, icon: Icon(Icons.pause_circle_outline, size: 50,color: Colors.pink,)),
@@ -358,8 +361,8 @@ class _GameScreen2State extends State<GameScreen2> {
                                   wordsLengths.putIfAbsent(cell.wordId, () => 0);
                                   wordsLengths[cell.wordId]++;
                                   return AbsorbPointer(
-                                    absorbing: cell.isKnown ,
-                                    child: GestureDetector(
+                                      absorbing: cell.isKnown ,
+                                      child: GestureDetector(
                                         onTapDown: (details) {
                                           selectItem(gridItemKey, details);
                                         },
@@ -375,21 +378,19 @@ class _GameScreen2State extends State<GameScreen2> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(0.5),
                                           child: Container(
-                                            color: cell.isKnown ?
-                                            getColor(cell) :
-                                            cell.selected ? Colors.grey: Colors.white,
-                                            child: SizedBox(
-                                                key: gridItemKey,
-                                                width: widget.currentLevel.sizeOfCell,
-                                                height: widget.currentLevel.sizeOfCell,
-                                                child: Center(child: AnimatedDefaultTextStyle(child: Text(cell.letter),
-                                                    style: TextStyle(color: widget.colorForLetter,fontSize: 45, fontWeight: FontWeight.bold),
-                                                    duration: Duration(seconds: 1),
-
-                                                    ),
-                                                ))),
-                                          ),
-                                        ));
+                                              color: cell.isKnown ?
+                                              getColor(cell) :
+                                              cell.selected ? Colors.grey: Colors.white,
+                                              child: SizedBox(
+                                                  key: gridItemKey,
+                                                  width: widget.currentLevel.sizeOfCell,
+                                                  height: widget.currentLevel.sizeOfCell,
+                                                  child: Center(child: Text(cell.letter,
+                                                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                                                  ),
+                                                  ))),
+                                        ),
+                                      ));
 
                                 }),
                               ),
@@ -459,6 +460,7 @@ class _GameScreen2State extends State<GameScreen2> {
       selectedCells.forEach((element) {
         element.isKnown = true;
         element.selected = false;
+
       });
     }
     else {
@@ -500,7 +502,7 @@ class _GameScreen2State extends State<GameScreen2> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("ОК"))
+                      child: Text("ОК")),
                 ],
               );
             });
@@ -511,10 +513,11 @@ class _GameScreen2State extends State<GameScreen2> {
       widget.score++;
     }
     if(widget.AllLevelwords.contains(word) && cell.isKnown == false){
-          widget.addWords.add(word);
+      widget.addWords.add(word);
     }
     if(widget.AllLevels[widget.currentLevel.difficulty][widget.currentGameLevel]
         .every((element) => element.every((c) => c.isKnown))){
+      savedVariables();
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => NewGame(levels,
@@ -524,9 +527,9 @@ class _GameScreen2State extends State<GameScreen2> {
             widget.AllLevels, widget.score)),
       );
     }
+
     selectedCells.clear();
     setState(() {});
-    widget.colorForLetter = Colors.black;
   }
   Color getColor (Cell cell){
     switch(cell.wordId){
@@ -539,6 +542,47 @@ class _GameScreen2State extends State<GameScreen2> {
       case 7 : return Colors.deepPurpleAccent; break;
       case 8 : return Colors.lightGreenAccent; break;
       case 9 : return Colors.brown; break;
+    }
+  }
+  void savedVariables() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if(widget.currentGameLevel == widget.counterOfLevels){
+      prefs.setInt("currentGameLevel", -1);
+      switch (widget.currentLevel.difficulty) {
+        case 0:
+          prefs.setInt("currentDifficult", 1);
+          prefs.setDouble("currentSizeOfCell", 75);
+          prefs.setString("levelName", "Вожатой");
+          prefs.setString("fonOfLevel", "fon2.png");
+          break;
+        case 1:
+          prefs.setInt("currentDifficult", 2);
+          prefs.setDouble("currentSizeOfCell", 65);
+          prefs.setString("levelName", "Ӧнерчи");
+          prefs.setString("fonOfLevel", "fon3.png");
+          break;
+        case 2:
+          prefs.setInt("currentDifficult", 3);
+          prefs.setDouble("currentSizeOfCell", 55);
+          prefs.setString("levelName", "Тӧро");
+          prefs.setString("fonOfLevel", "fon4.png");
+          break;
+        case 3:
+          prefs.setInt("currentDifficult", 0);
+          prefs.setDouble("currentSizeOfCell", 85);
+          prefs.setString("levelName", "Нылпи");
+          prefs.setString("fonOfLevel", "fon1.png");
+          prefs.setInt("score", 0);
+          break;
+      }
+    }
+    else {
+      prefs.setInt("currentGameLevel", widget.currentGameLevel);
+      prefs.setInt("score", widget.score);
+      prefs.setInt("currentDifficult", widget.currentLevel.difficulty);
+      prefs.setDouble("currentSizeOfCell", widget.currentLevel.sizeOfCell);
+      prefs.setString("levelName", widget.currentLevel.levelName);
+      prefs.setString("fonOfLevel", widget.currentLevel.fon);
     }
   }
 }
