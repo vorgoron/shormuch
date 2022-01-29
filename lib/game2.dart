@@ -10,6 +10,8 @@ class GameScreen2 extends StatefulWidget {
   int currentGameLevel;
   int score = 0;
   int counterOfLevels;
+  int counterOfColors = 0;
+
   GameScreen2(List<Level> levels, Level this.currentLevel, int this.currentGameLevel, int this.score,
       {Key key})
       : super(key: key) {
@@ -21,7 +23,10 @@ class GameScreen2 extends StatefulWidget {
 
   @override
   _GameScreen2State createState() => _GameScreen2State();
-
+  List<Color> colorOfScore = ([Colors.white,Colors.lightBlue,
+    Colors.orange,Colors.green,Colors.yellowAccent,Colors.redAccent,
+    Colors.deepPurpleAccent,Colors.lightGreenAccent
+  ]);
   List<String> addWords = List.of([]);
   List<List<List<List<Cell>>>> AllLevels = List.of([
     List.of([
@@ -319,7 +324,6 @@ class _GameScreen2State extends State<GameScreen2> {
               ),
               child: Center(
                 child: Column(
-
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     SizedBox(
@@ -330,10 +334,12 @@ class _GameScreen2State extends State<GameScreen2> {
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(10)
                         ),
-
-
-                        child: Text("Шедьтэм кылъёсыд: ${widget.score} ",
-                          style: TextStyle(fontSize: 30, color: Colors.white),),
+                        child: AnimatedDefaultTextStyle(
+                          duration: Duration(microseconds: 1),
+                          style: TextStyle(),
+                          child: Text("Шедьтэм кылъёсыд: ${widget.score} ",
+                            style: TextStyle(fontSize: 30, color: widget.colorOfScore[widget.counterOfColors]),),
+                        ),
                       ),
                     ),
                     // IconButton(onPressed: onPressed, icon: Icon(Icons.pause_circle_outline, size: 50,color: Colors.pink,)),
@@ -453,7 +459,9 @@ class _GameScreen2State extends State<GameScreen2> {
     });
     print("last $lastWord");
     print(word);
-
+    if(widget.counterOfColors > 6){
+      widget.counterOfColors = 0;
+    }
     if (wordIds.length == 1 && wordsLengths[cell.wordId] == selectedCells.length
         && widget.AllLevelwords.contains(word)) {
       // win
@@ -511,6 +519,7 @@ class _GameScreen2State extends State<GameScreen2> {
     if (widget.AllLevelwords.contains(word)
         && widget.addWords.contains(word) == false ){
       widget.score++;
+      widget.counterOfColors++;
     }
     if(widget.AllLevelwords.contains(word) && cell.isKnown == false){
       widget.addWords.add(word);
